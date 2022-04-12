@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../app/data.service'
-import { Observable } from 'rxjs'
+import { Component, OnInit,  } from '@angular/core';
+import { InputData } from './inputData';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +8,19 @@ import { Observable } from 'rxjs'
 })
 export class AppComponent {
   title = 'covid-stats';
+  formData!: InputData;
+  isDataSaved!: {"key": string, "data": InputData};
   constructor (){}
   
 
-  
+  getFormData(data: InputData){
+    this.formData = data;
+  }
+
+  getDataSaved(data:any){
+    this.isDataSaved = data;
+    console.log(this.isDataSaved)
+  }
 
 
 

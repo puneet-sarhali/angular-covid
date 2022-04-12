@@ -1,4 +1,27 @@
-<p>data-table works!</p>
-<div *ngFor="let item of covidStats | keyvalue">
-    {{item.key}}
-</div>
+<h2>STATISTICS</h2>
+<button (click)="onSaveData()">SAVE FILTERED DATA</button>
+<table>
+
+    <tr>
+        <th *ngIf="formData.provincial"> Province </th>
+        <th *ngIf="formData.newCases"> New Cases </th>
+        <th *ngIf="formData.cumuCases"> Cumulative Cases</th>
+        <th *ngIf="formData.newDeaths"> New Deaths </th>
+        <th *ngIf="formData.cumuDeaths"> Cumulative Deaths</th>
+        <th *ngIf="formData.newRecovered"> New Recovered </th>
+        <th *ngIf="formData.cumuRecovered"> Cumulative Recovered</th>
+    </tr>
+
+    <tr *ngFor="let item of covidStats">
+        <td *ngIf="formData.provincial"> {{item.province}} </td>
+        <td *ngIf="formData.newCases"> {{item.cases}}</td>
+        <td *ngIf="formData.cumuCases"> {{item.cumulative_cases}}</td>
+        <td *ngIf="formData.newDeaths"> {{item.deaths}}</td>
+        <td *ngIf="formData.cumuDeaths"> {{item.cumulative_deaths}}</td>
+        <td *ngIf="formData.newRecovered"> {{item.recovered}}</td>
+        <td *ngIf="formData.cumuRecovered"> {{item.cumulative_recovered}}</td>
+    </tr>
+
+</table>
+
+

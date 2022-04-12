@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>INPUT FORM</h2>
+
+    <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit(form.value)"
+    >
+    <div>
+        <h3>Stats:</h3>
+        <div>
+            <label for="newCases">New Cases</label>
+            <input id="newCases" type="checkbox" formControlName="newCases">
+        </div>
+        <div>
+            <label for="cumuCases">Cumulative Cases</label>
+            <input id="cumuCases" type="checkbox" formControlName="cumuCases">
+        </div>
+        <div>
+            <label for="newCases">New Deaths</label>
+            <input id="newDeaths" type="checkbox" formControlName="newDeaths">
+        </div>
+        <div>
+            <label for="cumuDeaths">Cumulative Deaths</label>
+            <input id="cumuDeaths" type="checkbox" formControlName="cumuDeaths">
+        </div>
+        <div>
+            <label for="rec">New Recovered</label>
+            <input id="rec" type="checkbox" formControlName="newRecovered">
+        </div>
+        <div>
+            <label for="cumuRec">Cumulative Recovered</label>
+            <input id="cumuRec" type="checkbox" formControlName="cumuRecovered">
+        </div>
+    </div>
+    <div>
+        <h3>Locations:</h3>
+        <div>
+            <label for="fed">Federal</label>
+            <input id="fed" type="checkbox" formControlName="federal">
+        </div>
+        <div>
+            <label for="prov">Provincial</label>
+            <input id="prov" type="checkbox" formControlName="provincial">
+        </div>
+        <div>
+            <label for="reg">Regional</label>
+            <input id="reg" type="checkbox" formControlName="regional">
+        </div>
+    </div>
+    <div>
+        <h3>Date Range:</h3>
+        <div>
+            <label for="start">Start Date</label>
+            <input id="start" type="date" formControlName="startDate">
+        </div>
+        <div>
+            <label for="end">End Date</label>
+            <input id="end" type="date" formControlName="endDate">
+        </div>
+    </div>
+    <button >SUBMIT</button>
+
+    </form>
+</div>
+
+<!-- <button (click)="onDelete()">delete</button> -->

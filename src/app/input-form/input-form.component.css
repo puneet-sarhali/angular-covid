@@ -1,0 +1,30 @@
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem;
+}
+form > button{
+    margin-top: 2rem;
+    align-self: flex-start;
+    padding: 0.8rem 1.2rem;
+    max-width: 6rem;
+}
+
+form > button:hover{
+    background-color: green;
+    color: white;
+}
+.container {
+    margin-left: 2rem;
+}
+
+@media (max-width: 50rem){
+    form{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 30rem){
+    form{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../data.service';
+import { Data } from '../data';
+import { InputData } from '../inputData'
 
 @Component({
   selector: 'app-data-table',
@@ -7,14 +9,68 @@ import { DataService } from '../data.service';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
-  covidStats: Object[] = []
-  constructor(private ds: DataService) { }
+  covidStats: Data[] = []
+  d:any;
+  inputData: Object = {};
+  @Input() formData!: InputData;
+  @Output() outDataSaved = new EventEmitter()
+
+  constructor(private ds:DataService ){ }
 
   ngOnInit(): void {
-    this.ds.callApi().subscribe((obj) => {
-      this.covidStats = Object.values(obj).flat();
-      console.log(this.covidStats[0])
-    });
+    this.getApiData();
+  }
+  ngOnChanges() {
+    this.getApiData();
+  }
+
+  getApiData(){
+    if(this.formData == null){
+      this.formData = {
+        cumuDeaths: true,
+        cumuRecovered: false,
+        cumuCases: true,
+        endDate: "",
+        federal: false,
+        newCases: true,
+        newDeaths: true,
+        newRecovered: false,
+        provincial: true,
+        regional: false,
+        startDate: ""
+      }; 
+    }
+    
+    const startDate = this.formData.startDate;
+    const endDate = this.formData.endDate;
+
+    let url = `https://api.opencovid.ca/summary?loc=prov&after=${startDate}&before=${endDate}`
+
+    this.ds.callApi(url).subscribe((data)=>{
+      this.d = data
+      this.covidStats = this.d.summary
+    })
+  }
+
+  onSaveData(){
+    if(this.formData == null){
+      this.formData = {
+        cumuDeaths: true,
+        cumuRecovered: false,
+        cumuCases: true,
+        endDate: "",
+        federal: false,
+        newCases: true,
+        newDeaths: true,
+        newRecovered: false,
+        provincial: true,
+        regional: false,
+        startDate: ""
+      }; 
+    }
+    this.ds.postData(this.formData).subscribe((result)=>{
+      this.outDataSaved.emit(result)
+    })
   }
 
 }

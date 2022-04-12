@@ -1,0 +1,18 @@
+<h2>DATA REQUEST HISTORY</h2>
+
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Stat</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
+    <tr *ngFor="let data of displayData">
+        <td>{{ data.time }}</td>
+        <td>{{ data.stats }}</td>
+        <td>{{ data.location }}</td>
+        <td>{{ data.range }}</td>
+        <td><button>display</button></td>
+        <td><button (click)="onDelete(data.key)">delete</button></td>
+    </tr>
+</table>

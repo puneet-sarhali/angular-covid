@@ -1,5 +1,23 @@
-<p>main works</p>
+<h1>COVID CASES CANADA STATISTICS</h1>
 
-<app-data-table>
+<app-input-form
+(formData)="getFormData($event)"
+>
+</app-input-form>
 
-</app-data-table>
+<app-history
+[isDataSaved]="isDataSaved"
+></app-history>
+
+<app-data-table
+(outDataSaved)="getDataSaved($event)"
+[formData]="formData"
+></app-data-table>
+
+
+
+<app-chart></app-chart>
+
+
+
+
