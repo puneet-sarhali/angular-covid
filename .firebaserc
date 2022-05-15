@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "covid-canada-297a1": {
+      "hosting": {
+        "covid-stats": [
+          "covid-canada-297a1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "covid-canada-297a1"
+  }
+}
