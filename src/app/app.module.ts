@@ -10,7 +10,10 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { CommonModule } from '@angular/common';
 import { InputFormComponent } from './input-form/input-form.component';
 import { ChartComponent } from './chart/chart.component';
-import { HistoryComponent } from './history/history.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 @NgModule({
   declarations: [
@@ -18,7 +21,6 @@ import { HistoryComponent } from './history/history.component';
     DataTableComponent,
     InputFormComponent,
     ChartComponent,
-    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,10 @@ import { HistoryComponent } from './history/history.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxChartsModule
+    NgxChartsModule, 
+    MatTableModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

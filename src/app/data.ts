@@ -1,23 +1,16 @@
 export interface Data {
-    province: string;
-    date: string;
-    cases: number;
-    cumulative_cases: number;
-    deaths: number;
-    cumulative_deaths: number;
-    recovered: number;
-    cumulative_recovered: number;
-    testing: number;
-    cumulative_testing: number;
-    testing_info: string;
-    active_cases: number;
-    active_cases_change: number;
-    avaccine: string;
-    cumulative_avaccine: string;
-    dvaccine: string;
-    cumulative_dvaccine: string;
-    cvaccine: string;
-    cumulative_cvaccine: string;
+    cases: number,
+    cases_daily: number,
+    date: string,
+    deaths: number,
+    deaths_daily: number,
+    hospitalizations: number,
+    hospitalizations_daily: number,
+    icu: number,
+    icu_daily: number,
+    region: string,
+    tests_completed: number,
+    tests_completed_daily: number,
 }
 
 export interface RootObject {

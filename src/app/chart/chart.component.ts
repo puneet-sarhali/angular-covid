@@ -16,14 +16,14 @@ export class ChartComponent implements OnInit {
   constructor(private ds: DataService) { }
 
   ngOnInit(): void {
-    const url = "https://api.opencovid.ca/summary?loc=prov"
+    const url = "https://api.opencovid.ca/summary"
     this.ds.callApi(url).subscribe((data)=>{
       this.d = data;
-      this.covidStats = this.d.summary
-      this.d.summary.forEach((obj: { province: any; cumulative_cases: any; }) => {
+      this.covidStats = this.d.data
+      this.d.data.forEach((obj: { region: any; cases: any; }) => {
         this.visualData.push({
-          "name": obj.province,
-          "value": obj.cumulative_cases
+          "name": obj.region,
+          "value": obj.cases
         })
       })
       this.visualData = [...this.visualData]

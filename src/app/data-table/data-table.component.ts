@@ -43,34 +43,16 @@ export class DataTableComponent implements OnInit {
     
     const startDate = this.formData.startDate;
     const endDate = this.formData.endDate;
+    const loc = this.formData 
 
-    let url = `https://api.opencovid.ca/summary?loc=prov&after=${startDate}&before=${endDate}`
+    let url = `https://api.opencovid.ca/summary/`
 
     this.ds.callApi(url).subscribe((data)=>{
       this.d = data
-      this.covidStats = this.d.summary
+      this.covidStats = this.d.data
+      console.log(this.covidStats)
     })
   }
 
-  onSaveData(){
-    if(this.formData == null){
-      this.formData = {
-        cumuDeaths: true,
-        cumuRecovered: false,
-        cumuCases: true,
-        endDate: "",
-        federal: false,
-        newCases: true,
-        newDeaths: true,
-        newRecovered: false,
-        provincial: true,
-        regional: false,
-        startDate: ""
-      }; 
-    }
-    this.ds.postData(this.formData).subscribe((result)=>{
-      this.outDataSaved.emit(result)
-    })
-  }
 
 }

@@ -3,17 +3,18 @@ form{
     grid-template-columns: 1fr 1fr 1fr;
     margin: 2rem;
 }
-form > button{
+button{
     margin-top: 2rem;
     align-self: flex-start;
-    padding: 0.8rem 1.2rem;
     max-width: 6rem;
 }
 
-form > button:hover{
-    background-color: green;
-    color: white;
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
+
 .container {
     margin-left: 2rem;
 }

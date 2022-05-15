@@ -1,5 +1,4 @@
 <h2>STATISTICS</h2>
-<button (click)="onSaveData()">SAVE FILTERED DATA</button>
 <table>
 
     <tr>
@@ -8,18 +7,14 @@
         <th *ngIf="formData.cumuCases"> Cumulative Cases</th>
         <th *ngIf="formData.newDeaths"> New Deaths </th>
         <th *ngIf="formData.cumuDeaths"> Cumulative Deaths</th>
-        <th *ngIf="formData.newRecovered"> New Recovered </th>
-        <th *ngIf="formData.cumuRecovered"> Cumulative Recovered</th>
     </tr>
 
     <tr *ngFor="let item of covidStats">
-        <td *ngIf="formData.provincial"> {{item.province}} </td>
-        <td *ngIf="formData.newCases"> {{item.cases}}</td>
-        <td *ngIf="formData.cumuCases"> {{item.cumulative_cases}}</td>
-        <td *ngIf="formData.newDeaths"> {{item.deaths}}</td>
-        <td *ngIf="formData.cumuDeaths"> {{item.cumulative_deaths}}</td>
-        <td *ngIf="formData.newRecovered"> {{item.recovered}}</td>
-        <td *ngIf="formData.cumuRecovered"> {{item.cumulative_recovered}}</td>
+        <td *ngIf="formData.provincial"> {{item.region}} </td>
+        <td *ngIf="formData.newCases"> {{item.cases_daily}}</td>
+        <td *ngIf="formData.cumuCases"> {{item.cases}}</td>
+        <td *ngIf="formData.newDeaths"> {{item.deaths_daily}}</td>
+        <td *ngIf="formData.cumuDeaths"> {{item.deaths}}</td>
     </tr>
 
 </table>
