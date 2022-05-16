@@ -1,5 +1,5 @@
-<div class="container">
-    <h2>INPUT FORM</h2>
+<mat-card class="container">
+    <h2>Select the data you want: </h2>
 
     <form
     [formGroup]="form"
@@ -16,19 +16,27 @@
         <mat-checkbox formControlName="cumuRecovered">Cumulative Recovered</mat-checkbox>
     </div>
     <div class="form-section">
-        <h3>Locations:</h3>
+        <h3 class="margin-top">Locations:</h3>
         <mat-checkbox formControlName="federal">Federal</mat-checkbox>
         <mat-checkbox formControlName="provincial">Provincial</mat-checkbox>
         <mat-checkbox formControlName="regional">Regional</mat-checkbox>
     </div>
     <div>
-        <h3>Date Range:</h3>
-        <input id="start" type="date" formControlName="startDate">
-        <input id="end" type="date" formControlName="endDate">
+        <mat-form-field>
+            <mat-label>Choose date range: </mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date">
+                <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        
     </div>
     <button mat-raised-button color="primary">SUBMIT</button>
 
     </form>
-</div>
+</mat-card>
 
 <!-- <button (click)="onDelete()">delete</button> -->
